@@ -1,8 +1,4 @@
-
-
 #!/bin/bash
-
-
 apt install net-tools -y
 apt install openssh-server -y
 apt install traceroute -y
@@ -36,15 +32,13 @@ ldconfig
 
 cd /usr/local/src/asterisk-*/contrib/init.d
 
-cp etc_default_asterisk etc_default_asterisk.wip
-sed '8,9s/^#//' -i etc_default_asterisk.wip
-cp etc_default_asterisk.wip /etc/default/asterisk
+cp etc_default_asterisk /etc/default/asterisk
+sed '8,9s/^#//' -i /etc/default/asterisk/etc_default_asterisk
 
-cp rc.debian.asterisk rc.debian.asterisk.wip
-sed "s+DAEMON=.*+DAEMON=/usr/sbin/asterisk+" -i rc.debian.asterisk.wip
-sed "s+ASTVARRUNDIR=.*+ASTVARRUNDIR=/var/run/asterisk+" -i rc.debian.asterisk.wip
-sed "s+ASTETCDIR=.*+ASTETCDIR=/etc/asterisk+" -i rc.debian.asterisk.wip
-cp rc.debian.asterisk.wip /etc/init.d/asterisk
+cp rc.debian.asterisk /etc/init.d/asterisk
+sed "s+DAEMON=.*+DAEMON=/usr/sbin/asterisk+" -i /etc/init.d/asterisk/rc.debian.asterisk
+sed "s+ASTVARRUNDIR=.*+ASTVARRUNDIR=/var/run/asterisk+" -i /etc/init.d/asterisk/rc.debian.asterisk
+sed "s+ASTETCDIR=.*+ASTETCDIR=/etc/asterisk+" -i /etc/init.d/asterisk/rc.debian.asterisk
 
 
 chown -R asterisk.asterisk /etc/asterisk
@@ -54,4 +48,3 @@ chown -R asterisk.asterisk /usr/lib/asterisk
 
 systemctl enable asterisk
 systemctl start asterisk
-
