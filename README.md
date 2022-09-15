@@ -11,7 +11,7 @@ Simple install script for Asterisk 18
 
 -It will download and install Asterisk 18, including all dependencies
 
--Modify and copy the files neccessary for running Asterisk as a service
+-Modify and copy the files necessary for running Asterisk as a service
 
 -Add user and group: asterisk
 
@@ -45,7 +45,7 @@ For example:
 ./config 1234567_test MyNewPassword 123.123.123.123
 ```
 
-The script then substitues the arguments, backup of original config files and copies the new ones to ``` /etc/asterisk ```.
+The script then substitutes the arguments, does backup of original config files and copies the new ones to ``` /etc/asterisk ```.
 
 Some further modification of ``` pjsip.conf extensions.conf voipms.conf voicemail.conf ``` may be required if using a different Trunk and/or extensions.
 
